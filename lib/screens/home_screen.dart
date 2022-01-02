@@ -12,10 +12,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.from(colorScheme: const ColorScheme.light()),
       debugShowCheckedModeBanner: false,
       title: 'ToDo App',
       home: Scaffold(
+          backgroundColor: Colors.greenAccent,
           appBar: AppBar(
             centerTitle: true,
             title: const Text('Home'),
