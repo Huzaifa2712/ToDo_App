@@ -22,12 +22,14 @@ class _HomeState extends State<Home> {
           ),
           drawer: const Drawer_Navigation(),
           body: Center(
-            child: Container(
-              child: const Text(
-                'welcome to home screen',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            child: BottomNavigationBar(items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: 'Settings',
+                backgroundColor: Colors.pink,
               ),
-            ),
+            ]),
           )),
     );
   }
