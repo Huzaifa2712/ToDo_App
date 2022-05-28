@@ -13,22 +13,25 @@ class navigation extends StatefulWidget {
 class _navigationState extends State<navigation> {
   int currentIndex = 0;
   final screens = [
-    // Category(),
     const Home(),
+    const Categories(),
     const Settings(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        items: [
+        currentIndex: currentIndex,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-            ),
-          ),
+              icon: Icon(Icons.category), label: 'Category'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings), label: 'Settings'),
         ],
+        onTap: (index) => setState(() => currentIndex = index),
       ),
     );
   }

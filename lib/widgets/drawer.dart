@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/screens/category_screen.dart';
 import 'package:todo_app/screens/home_screen.dart';
+import 'package:todo_app/screens/settings.dart';
 
 class Drawer_Navigation extends StatefulWidget {
   const Drawer_Navigation({Key? key}) : super(key: key);
@@ -15,9 +16,19 @@ class _DrawerState extends State<Drawer_Navigation> {
     return Drawer(
       child: ListView(
         children: <Widget>[
-          const UserAccountsDrawerHeader(
-            accountName: Text('huzaifa'),
-            accountEmail: Text('hz@gmail.com'),
+          UserAccountsDrawerHeader(
+            accountName: const Text('huzaifa'),
+            accountEmail: const Text('hz@gmail.com'),
+            currentAccountPicture: GestureDetector(
+              child: const CircleAvatar(
+                backgroundColor: Colors.black,
+                child: Icon(
+                  Icons.filter_list,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            decoration: const BoxDecoration(color: Colors.purple),
           ),
           ListTile(
             leading: const Icon(
@@ -33,16 +44,6 @@ class _DrawerState extends State<Drawer_Navigation> {
                   .push(MaterialPageRoute(builder: (context) => const Home()));
             },
           ),
-          const ListTile(
-            leading: Icon(
-              Icons.settings,
-              color: Colors.black,
-            ),
-            title: Text(
-              'settings',
-              style: TextStyle(color: Colors.black),
-            ),
-          ),
           ListTile(
             leading: const Icon(
               Icons.view_list,
@@ -55,6 +56,20 @@ class _DrawerState extends State<Drawer_Navigation> {
             onTap: () {
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => const Categories()));
+            },
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.settings,
+              color: Colors.black,
+            ),
+            title: const Text(
+              'settings',
+              style: TextStyle(color: Colors.black),
+            ),
+            onTap: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const Settings()));
             },
           ),
         ],

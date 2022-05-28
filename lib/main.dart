@@ -8,8 +8,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Home();
-    // ignore: dead_code
-    ThemeData(primaryColor: Colors.amber);
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          primaryColor: Colors.purple,
+          scaffoldBackgroundColor: Colors.purple.shade400),
+      home: const Home(),
+    );
   }
 }
